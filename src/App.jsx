@@ -2,16 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Brain,
-  Boxes,
   Check,
   Copy,
+  EyeOff,
   Github,
+  Gitlab,
+  GraduationCap,
+  KeyRound,
+  LayoutGrid,
   Linkedin,
   Mail,
-  Network,
+  Newspaper,
+  QrCode,
   Sparkles,
   Terminal,
-  Workflow,
 } from 'lucide-react';
 import ProjectCard from './components/ProjectCard.jsx';
 
@@ -21,45 +25,59 @@ const PROJECTS = [
   {
     title: 'Universal RAG Framework',
     description:
-      'A modular system for LLM context optimization — pluggable retrievers, rerankers, and chunking strategies behind a single contract. Benchmarked across multiple vector stores and embedding models.',
-    tags: ['Python', 'Gemini', 'FAISS', 'LangChain', 'Pydantic'],
-    github: 'https://github.com/costin5',
-    href: 'https://github.com/costin5',
+      'A production-ready Retrieval-Augmented Generation Discord bot framework. Feed it any knowledge base for grounded, hallucination-free answers — built to learn how retrieval and LLMs fit together end-to-end.',
+    tags: ['Python', 'LLMs', 'Vector DB'],
+    github: 'https://github.com/costin-cernea/universal-rag-framework',
+    href: 'https://github.com/costin-cernea/universal-rag-framework',
     featured: true,
     icon: Brain,
-    meta: 'Flagship · 2025',
+    meta: 'Flagship · AI',
   },
   {
-    title: 'Agentic Workflow Engine',
-    description: 'Graph-based orchestration for multi-step agents with deterministic replay.',
-    tags: ['TypeScript', 'LangGraph', 'Redis'],
-    github: 'https://github.com/costin5',
-    icon: Workflow,
-    meta: 'OSS',
-  },
-  {
-    title: 'Semantic Cache Layer',
-    description: 'Embedding-based cache that cuts LLM spend by routing near-duplicate prompts.',
-    tags: ['Go', 'pgvector', 'OpenTelemetry'],
-    github: 'https://github.com/costin5',
-    icon: Network,
-    meta: 'Infra',
-  },
-  {
-    title: 'Eval Harness',
-    description: 'Declarative evaluation suite for prompts with regression gates in CI.',
-    tags: ['Python', 'Pytest', 'GitHub Actions'],
-    github: 'https://github.com/costin5',
+    title: 'DevOps Portfolio',
+    description:
+      'A collection of projects built to master modern infrastructure and deployment pipelines. Features hands-on implementations of GitLab CI/CD, Docker containerization, and Kubernetes orchestration.',
+    tags: ['GitLab CI/CD', 'Docker', 'Kubernetes'],
+    github: 'https://github.com/costin-cernea/devops-portfolio',
+    href: 'https://github.com/costin-cernea/devops-portfolio',
     icon: Terminal,
-    meta: 'Tooling',
+    meta: 'Infrastructure',
   },
   {
-    title: 'Context Compiler',
-    description: 'Static analysis for prompt templates — type-checks variables before they ship.',
-    tags: ['Rust', 'Tree-sitter'],
-    github: 'https://github.com/costin5',
-    icon: Boxes,
-    meta: 'Experiment',
+    title: 'news-ai-bot',
+    description:
+      'An RSS feed monitor that summarizes articles with Gemini and publishes them to Discord and Telegram, grouped and deduplicated by category.',
+    tags: ['Python', 'Gemini API'],
+    github: 'https://github.com/costin-cernea/news-ai-bot',
+    icon: Newspaper,
+    meta: 'AI · Automation',
+  },
+  {
+    title: 'youtube-stealth-mode',
+    description:
+      'A browser extension to reclaim YouTube focus — blocks tracking and hides toxic content from history so the feed stops pulling attention.',
+    tags: ['JavaScript'],
+    github: 'https://github.com/costin-cernea/youtube-stealth-mode-extension',
+    icon: EyeOff,
+    meta: 'Browser extension',
+  },
+  {
+    title: 'Password Generator',
+    description:
+      'A secure, fully client-side strong password generator. Part of the QuickTools suite I build to practice scripting fundamentals.',
+    tags: ['JavaScript', 'CSS'],
+    github: 'https://github.com/costin-cernea/password-generator',
+    icon: KeyRound,
+    meta: 'QuickTools',
+  },
+  {
+    title: 'QR Code Generator',
+    description:
+      'A fast, privacy-focused QR code generator with download support. Another piece of the QuickTools suite.',
+    tags: ['JavaScript', 'CSS'],
+    github: 'https://github.com/costin-cernea/qr-code-generator',
+    icon: QrCode,
+    meta: 'QuickTools',
   },
 ];
 
@@ -178,7 +196,7 @@ export default function App() {
           </div>
           <div className="flex items-center gap-1">
             <a
-              href="https://github.com/costin5"
+              href="https://github.com/costin-cernea"
               target="_blank"
               rel="noreferrer"
               className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-white/10 transition hover:bg-white/5 hover:text-ink"
@@ -187,7 +205,16 @@ export default function App() {
               <Github className="h-3.5 w-3.5" strokeWidth={1.75} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://gitlab.com/costin-cernea"
+              target="_blank"
+              rel="noreferrer"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-white/10 transition hover:bg-white/5 hover:text-ink"
+              aria-label="GitLab"
+            >
+              <Gitlab className="h-3.5 w-3.5" strokeWidth={1.75} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/costin-cernea"
               target="_blank"
               rel="noreferrer"
               className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-white/10 transition hover:bg-white/5 hover:text-ink"
@@ -211,26 +238,36 @@ export default function App() {
             className="flex flex-col items-start"
           >
             <motion.div variants={item} className="glass mb-8 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs text-ink-muted">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              </span>
-              <span className="font-mono tracking-tight">Available for senior IC & tech-lead roles</span>
+              <GraduationCap className="h-3.5 w-3.5 text-ink-muted" strokeWidth={1.75} />
+              <span className="font-mono tracking-tight">Student · DevOps & Infrastructure Enthusiast</span>
             </motion.div>
 
             <motion.h1
               variants={item}
               className="max-w-4xl text-display-sm md:text-display lg:text-display-lg"
             >
-              Crafting <span className="text-ink-muted">intelligent systems</span> & scalable architectures.
+              Learning by <span className="text-ink-muted">building</span> — exploring infrastructure, automation, and DevOps.
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-6 max-w-xl text-base text-ink-muted md:text-lg"
             >
-              I design retrieval pipelines, agent frameworks, and the infrastructure that keeps them honest in production.
+              I'm a student fascinated by how software is deployed and maintained. I'm currently focused on learning DevOps fundamentals by building hands-on projects and automating my own workflows.
             </motion.p>
+
+            <motion.div variants={item} className="mt-8">
+              <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
+                Tech Stack & Core Skills
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Linux', 'Docker', 'Kubernetes', 'GitLab CI/CD', 'Bash Scripting', 'Python', 'Cloud / VPS', 'Networking', 'Security'].map(skill => (
+                  <span key={skill} className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1 font-mono text-xs text-ink-muted transition-all duration-300 hover:bg-accent-glow/10 hover:text-ink hover:border-accent-glow/30 hover:shadow-[0_0_16px_rgba(139,92,246,0.15)] cursor-default">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
 
             <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-3">
               <CopyEmailButton />
@@ -255,7 +292,7 @@ export default function App() {
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Projects & systems</h2>
           </div>
           <a
-            href="https://github.com/costin5"
+            href="https://github.com/costin-cernea"
             target="_blank"
             rel="noreferrer"
             className="hidden text-sm text-ink-muted transition hover:text-ink md:inline-flex"
@@ -285,18 +322,18 @@ export default function App() {
               ¬ About
             </p>
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Senior full-stack engineer with a bias for the model layer.
+              Curious about infrastructure, automation, and how things work under the hood.
             </h2>
           </div>
           <div className="space-y-4 text-base text-ink-muted md:col-span-3 md:text-lg">
             <p>
-              I work at the seam between application code and large language models — designing the retrieval,
-              evaluation, and orchestration primitives that keep intelligent systems predictable under load.
+              Most of what I know comes from curiosity and getting my hands dirty. My main focus right now is building a strong foundation in DevOps — experimenting with Linux environments, containerizing applications with Docker, and setting up my first CI/CD pipelines.
             </p>
             <p>
-              Recent focus: the <span className="text-ink">Universal RAG Framework</span>, a modular toolkit
-              that decouples context construction from model choice so teams can iterate on either
-              independently.
+              Alongside my infrastructure practice, I built the <span className="text-ink">Universal RAG Framework</span> to understand how AI and retrieval work end-to-end. My goal is to bridge these interests: writing useful code and learning how to deploy it reliably.
+            </p>
+            <p>
+              Always happy to chat about DevOps, CI/CD, infrastructure, or any challenging engineering project.
             </p>
           </div>
         </div>
@@ -309,10 +346,10 @@ export default function App() {
             ¬ Contact
           </p>
           <h2 className="max-w-2xl text-3xl font-semibold tracking-tight md:text-5xl">
-            Have a hard problem in the model layer?
+            Let's build reliable systems together.
           </h2>
           <p className="mt-4 max-w-xl text-ink-muted">
-            I'm open to tech-lead and staff-level IC roles. Async chats welcome.
+            I'm open to internships, junior roles, and collaborations — especially around DevOps, Cloud infrastructure, or AI. Always eager to dive into complex systems and learn together.
           </p>
           <div className="mt-8">
             <CopyEmailButton />

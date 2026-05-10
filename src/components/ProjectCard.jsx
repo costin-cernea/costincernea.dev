@@ -44,7 +44,7 @@ export default function ProjectCard({
         'border border-white/[0.06] hover:border-white/[0.12]',
         'shadow-card hover:shadow-card-hover',
         'transition-colors duration-300',
-        featured ? 'md:col-span-2 md:row-span-1' : '',
+        featured ? 'md:col-span-2 lg:row-span-2' : '',
       ].join(' ')}
     >
       {/* Cursor-follow spotlight */}
