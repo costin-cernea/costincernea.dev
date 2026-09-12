@@ -9,7 +9,6 @@ import {
   Gitlab,
   GraduationCap,
   KeyRound,
-  LayoutGrid,
   Linkedin,
   Mail,
   Newspaper,
@@ -21,6 +20,21 @@ import ProjectCard from './components/ProjectCard.jsx';
 
 const EMAIL = 'costinmatei.cernea@gmail.com';
 
+const SKILL_GROUPS = [
+  {
+    label: 'Infrastructure & CI/CD',
+    skills: ['Linux', 'Docker', 'Kubernetes', 'GitLab CI/CD', 'Cloud / VPS'],
+  },
+  {
+    label: 'Backend & Systems',
+    skills: ['Python', 'Bash Scripting', 'Networking', 'Security'],
+  },
+  {
+    label: 'Tools',
+    skills: ['Git', 'VS Code'],
+  },
+];
+
 const PROJECTS = [
   {
     title: 'Universal RAG Framework',
@@ -31,7 +45,7 @@ const PROJECTS = [
     href: 'https://github.com/costin-cernea/universal-rag-framework',
     featured: true,
     icon: Brain,
-    meta: 'Flagship · AI',
+    meta: 'Applied AI · RAG',
   },
   {
     title: 'DevOps Portfolio',
@@ -141,11 +155,11 @@ function CopyEmailButton() {
         onClick={handleCopy}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-medium text-ink backdrop-blur-sm transition hover:bg-white/[0.06] hover:border-white/20"
+        className="group inline-flex items-center gap-2 rounded-full border border-zinc-800/60 bg-white/[0.03] px-4 py-2 text-sm font-medium text-ink backdrop-blur-sm transition hover:bg-white/[0.06] hover:border-zinc-700/70"
       >
         <Mail className="h-3.5 w-3.5 text-ink-muted" strokeWidth={1.75} />
         <span className="font-mono text-xs tracking-tight">{EMAIL}</span>
-        <span className="ml-1 flex h-6 w-6 items-center justify-center rounded-full bg-white/[0.04] ring-1 ring-white/10 transition group-hover:bg-white/[0.08]">
+        <span className="ml-1 flex h-6 w-6 items-center justify-center rounded-full bg-white/[0.04] ring-1 ring-zinc-800/60 transition group-hover:bg-white/[0.08]">
           {copied ? (
             <Check className="h-3 w-3 text-emerald-400" strokeWidth={2.5} />
           ) : (
@@ -184,7 +198,7 @@ export default function App() {
       <nav className="sticky top-0 z-40 border-b border-white/[0.04] bg-surface/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <a href="#" className="flex items-center gap-2 font-semibold tracking-tight">
-            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-white/5 ring-1 ring-white/10">
+            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-white/5 ring-1 ring-zinc-800/60">
               <Sparkles className="h-3.5 w-3.5 text-ink" strokeWidth={2} />
             </span>
             <span className="text-sm">Costin Cernea</span>
@@ -199,7 +213,7 @@ export default function App() {
               href="https://github.com/costin-cernea"
               target="_blank"
               rel="noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-white/10 transition hover:bg-white/5 hover:text-ink"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-zinc-800/60 transition hover:bg-white/5 hover:text-ink"
               aria-label="GitHub"
             >
               <Github className="h-3.5 w-3.5" strokeWidth={1.75} />
@@ -208,7 +222,7 @@ export default function App() {
               href="https://gitlab.com/costin-cernea"
               target="_blank"
               rel="noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-white/10 transition hover:bg-white/5 hover:text-ink"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-zinc-800/60 transition hover:bg-white/5 hover:text-ink"
               aria-label="GitLab"
             >
               <Gitlab className="h-3.5 w-3.5" strokeWidth={1.75} />
@@ -217,7 +231,7 @@ export default function App() {
               href="https://www.linkedin.com/in/costin-cernea"
               target="_blank"
               rel="noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-white/10 transition hover:bg-white/5 hover:text-ink"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-zinc-800/60 transition hover:bg-white/5 hover:text-ink"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-3.5 w-3.5" strokeWidth={1.75} />
@@ -230,43 +244,50 @@ export default function App() {
       <section ref={heroRef} className="relative overflow-hidden">
         <HeroBackground heroRef={heroRef} />
 
-        <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40">
+        <div className="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
           <motion.div
             initial="hidden"
             animate="show"
             variants={container}
             className="flex flex-col items-start"
           >
-            <motion.div variants={item} className="glass mb-8 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs text-ink-muted">
+            <motion.div variants={item} className="glass mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs text-ink-muted">
               <GraduationCap className="h-3.5 w-3.5 text-ink-muted" strokeWidth={1.75} />
-              <span className="font-mono tracking-tight">Student · DevOps & Infrastructure Enthusiast</span>
+              <span className="font-mono tracking-tight">Student · DevOps & Infrastructure</span>
             </motion.div>
 
             <motion.h1
               variants={item}
-              className="max-w-4xl text-display-sm md:text-display lg:text-display-lg"
+              className="max-w-3xl text-display-sm leading-tight md:text-display lg:text-display-lg"
             >
-              Learning by <span className="text-ink-muted">building</span> — exploring infrastructure, automation, and DevOps.
+              I build things to understand how they <span className="text-ink-muted">actually work</span>.
             </motion.h1>
 
             <motion.p
               variants={item}
-              className="mt-6 max-w-xl text-base text-ink-muted md:text-lg"
+              className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted md:text-lg"
             >
-              I'm a student fascinated by how software is deployed and maintained. I'm currently focused on learning DevOps fundamentals by building hands-on projects and automating my own workflows.
+              I'm a student who learns by shipping — setting up CI/CD pipelines, containerizing services, and picking apart infrastructure until it makes sense. Lately that curiosity has stretched into applied AI, building RAG tools and small automations of my own.
             </motion.p>
 
-            <motion.div variants={item} className="mt-8">
-              <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
-                Tech Stack & Core Skills
+            <motion.div variants={item} className="mt-8 space-y-4">
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
+                Tech Stack
               </p>
-              <div className="flex flex-wrap gap-2">
-                {['Linux', 'Docker', 'Kubernetes', 'GitLab CI/CD', 'Bash Scripting', 'Python', 'Cloud / VPS', 'Networking', 'Security'].map(skill => (
-                  <span key={skill} className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1 font-mono text-xs text-ink-muted transition-all duration-300 hover:bg-accent-glow/10 hover:text-ink hover:border-accent-glow/30 hover:shadow-[0_0_16px_rgba(139,92,246,0.15)] cursor-default">
-                    {skill}
+              {SKILL_GROUPS.map((group) => (
+                <div key={group.label} className="flex flex-wrap items-center gap-2">
+                  <span className="w-full font-mono text-[10px] uppercase tracking-[0.12em] text-ink-subtle/80 sm:w-32 sm:shrink-0">
+                    {group.label}
                   </span>
-                ))}
-              </div>
+                  <div className="flex flex-wrap gap-2">
+                    {group.skills.map(skill => (
+                      <span key={skill} className="rounded-full border border-zinc-800/60 bg-white/[0.02] px-3 py-1 font-mono text-xs text-ink-muted transition-colors duration-300 hover:border-accent-glow/30 hover:text-ink cursor-default">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </motion.div>
 
             <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-3">
@@ -283,13 +304,13 @@ export default function App() {
       </section>
 
       {/* ——— WORK / BENTO ——— */}
-      <section id="work" className="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <section id="work" className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="mb-10 flex items-end justify-between">
           <div>
             <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
               ¬ Selected Work
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Projects & systems</h2>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Projects & systems</h2>
           </div>
           <a
             href="https://github.com/costin-cernea"
@@ -315,41 +336,41 @@ export default function App() {
       </section>
 
       {/* ——— ABOUT ——— */}
-      <section id="about" className="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <section id="about" className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="grid gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
             <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
               ¬ About
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            <h2 className="text-2xl font-semibold leading-tight tracking-tight md:text-3xl">
               Curious about infrastructure, automation, and how things work under the hood.
             </h2>
           </div>
-          <div className="space-y-4 text-base text-ink-muted md:col-span-3 md:text-lg">
+          <div className="space-y-4 text-base leading-relaxed text-ink-muted md:col-span-3 md:text-lg">
             <p>
-              Most of what I know comes from curiosity and getting my hands dirty. My main focus right now is building a strong foundation in DevOps — experimenting with Linux environments, containerizing applications with Docker, and setting up my first CI/CD pipelines.
+              Most of what I know comes from curiosity and getting my hands dirty. Right now that means building a solid DevOps foundation — setting up CI/CD pipelines on GitLab, containerizing services with Docker, and getting comfortable with Kubernetes and plain Linux boxes alike.
             </p>
             <p>
-              Alongside my infrastructure practice, I built the <span className="text-ink">Universal RAG Framework</span> to understand how AI and retrieval work end-to-end. My goal is to bridge these interests: writing useful code and learning how to deploy it reliably.
+              I like following that curiosity outside infrastructure too: I built the <span className="text-ink">Universal RAG Framework</span> to see how retrieval and LLMs actually fit together, and a small browser extension, <span className="text-ink">youtube-stealth-mode</span>, to block tracking at the network level. Different problems, same instinct — take it apart, rebuild it, understand it.
             </p>
             <p>
-              Always happy to chat about DevOps, CI/CD, infrastructure, or any challenging engineering project.
+              Always happy to talk shop about DevOps, CI/CD, or any project that involves figuring out how something really works.
             </p>
           </div>
         </div>
       </section>
 
       {/* ——— CONTACT ——— */}
-      <section id="contact" className="relative mx-auto max-w-6xl px-6 pb-28">
-        <div className="glass overflow-hidden rounded-3xl p-10 md:p-14">
+      <section id="contact" className="relative mx-auto max-w-6xl px-6 pb-20 md:pb-24">
+        <div className="glass overflow-hidden rounded-2xl p-8 md:p-12">
           <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
             ¬ Contact
           </p>
-          <h2 className="max-w-2xl text-3xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight md:text-4xl">
             Let's build reliable systems together.
           </h2>
-          <p className="mt-4 max-w-xl text-ink-muted">
-            I'm open to internships, junior roles, and collaborations — especially around DevOps, Cloud infrastructure, or AI. Always eager to dive into complex systems and learn together.
+          <p className="mt-4 max-w-xl leading-relaxed text-ink-muted">
+            I'm open to internships, junior roles, and collaborations — especially around DevOps, cloud infrastructure, or applied AI. Always eager to dive into a complex system and learn how it holds together.
           </p>
           <div className="mt-8">
             <CopyEmailButton />

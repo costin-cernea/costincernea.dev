@@ -27,10 +27,10 @@ export default {
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {
-        // Tightened display scale for hero typography
-        'display-sm': ['3rem', { lineHeight: '1.05', letterSpacing: '-0.04em', fontWeight: '600' }],
-        'display': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.045em', fontWeight: '600' }],
-        'display-lg': ['6rem', { lineHeight: '0.95', letterSpacing: '-0.05em', fontWeight: '600' }],
+        // Balanced display scale for hero typography — text-4xl → text-6xl range
+        'display-sm': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '600' }],
+        'display': ['3rem', { lineHeight: '1.15', letterSpacing: '-0.025em', fontWeight: '600' }],
+        'display-lg': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '600' }],
       },
       backgroundImage: {
         'radial-glow':

@@ -41,7 +41,7 @@ export default function ProjectCard({
       className={[
         'group relative overflow-hidden rounded-2xl',
         'bg-surface-raised/60 backdrop-blur-sm',
-        'border border-white/[0.06] hover:border-white/[0.12]',
+        'border border-zinc-800/60 hover:border-zinc-700/70',
         'shadow-card hover:shadow-card-hover',
         'transition-colors duration-300',
         featured ? 'md:col-span-2 lg:row-span-2' : '',
@@ -66,7 +66,7 @@ export default function ProjectCard({
         <div className="mb-5 flex items-start justify-between">
           <div className="flex items-center gap-3">
             {Icon && (
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 ring-1 ring-zinc-800/60">
                 <Icon className="h-4 w-4 text-ink" strokeWidth={1.75} />
               </div>
             )}
@@ -84,7 +84,7 @@ export default function ProjectCard({
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`${title} on GitHub`}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-white/10 transition hover:bg-white/5 hover:text-ink"
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-zinc-800/60 transition hover:bg-white/5 hover:text-ink"
               >
                 <Github className="h-3.5 w-3.5" strokeWidth={1.75} />
               </a>
@@ -95,7 +95,7 @@ export default function ProjectCard({
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`Open ${title}`}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-white/10 transition hover:bg-white/5 hover:text-ink"
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-muted ring-1 ring-zinc-800/60 transition hover:bg-white/5 hover:text-ink"
               >
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={1.75} />
               </a>
@@ -124,7 +124,7 @@ export default function ProjectCard({
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-white/[0.08] bg-white/[0.02] px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-ink-muted"
+                className="rounded-full border border-zinc-800/60 bg-white/[0.02] px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-ink-muted"
               >
                 {tag}
               </span>
