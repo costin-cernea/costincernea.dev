@@ -8,13 +8,13 @@ import {
   Github,
   Gitlab,
   GraduationCap,
-  KeyRound,
   Linkedin,
   Mail,
   Newspaper,
   QrCode,
   Sparkles,
   Terminal,
+  Users,
 } from 'lucide-react';
 import ProjectCard from './components/ProjectCard.jsx';
 
@@ -23,15 +23,15 @@ const EMAIL = 'costinmatei.cernea@gmail.com';
 const SKILL_GROUPS = [
   {
     label: 'Infrastructure & CI/CD',
-    skills: ['Linux', 'Docker', 'Kubernetes', 'GitLab CI/CD', 'Cloud / VPS'],
+    skills: ['Linux', 'Docker', 'Kubernetes', 'GitLab CI/CD', 'Cloud / VPS', 'Terraform', 'AWS'],
   },
   {
     label: 'Backend & Systems',
-    skills: ['Python', 'Bash Scripting', 'Networking', 'Security'],
+    skills: ['Python', 'Bash Scripting', 'Networking', 'Security', 'PostgreSQL'],
   },
   {
     label: 'Tools',
-    skills: ['Git', 'VS Code'],
+    skills: ['Git', 'VS Code', 'tmux'],
   },
 ];
 
@@ -40,7 +40,7 @@ const PROJECTS = [
     title: 'Universal RAG Framework',
     description:
       'A production-ready Retrieval-Augmented Generation Discord bot framework. Feed it any knowledge base for grounded, hallucination-free answers — built to learn how retrieval and LLMs fit together end-to-end.',
-    tags: ['Python', 'LLMs', 'Vector DB'],
+    tags: ['Python', 'Gemini API', 'Discord.py', 'FAISS', 'Sentence Transformers', 'BeautifulSoup'],
     github: 'https://github.com/costin-cernea/universal-rag-framework',
     href: 'https://github.com/costin-cernea/universal-rag-framework',
     featured: true,
@@ -51,7 +51,7 @@ const PROJECTS = [
     title: 'DevOps Portfolio',
     description:
       'A collection of projects built to master modern infrastructure and deployment pipelines. Features hands-on implementations of GitLab CI/CD, Docker containerization, and Kubernetes orchestration.',
-    tags: ['GitLab CI/CD', 'Docker', 'Kubernetes'],
+    tags: ['GitLab CI/CD', 'Python', 'Docker', 'Bash', 'Terraform', 'AWS', 'Kubernetes'],
     github: 'https://github.com/costin-cernea/devops-portfolio',
     href: 'https://github.com/costin-cernea/devops-portfolio',
     icon: Terminal,
@@ -61,7 +61,7 @@ const PROJECTS = [
     title: 'news-ai-bot',
     description:
       'An RSS feed monitor that summarizes articles with Gemini and publishes them to Discord and Telegram, grouped and deduplicated by category.',
-    tags: ['Python', 'Gemini API'],
+    tags: ['Python', 'Gemini API', 'Discord.py', 'Telegram Bot API', 'RSS', 'SQLite'],
     github: 'https://github.com/costin-cernea/news-ai-bot',
     icon: Newspaper,
     meta: 'AI · Automation',
@@ -70,19 +70,19 @@ const PROJECTS = [
     title: 'youtube-stealth-mode',
     description:
       'A browser extension to reclaim YouTube focus — blocks tracking and hides toxic content from history so the feed stops pulling attention.',
-    tags: ['JavaScript'],
+    tags: ['JavaScript', 'Chrome Extension', 'Manifest V3', 'WebExtensions'],
     github: 'https://github.com/costin-cernea/youtube-stealth-mode-extension',
     icon: EyeOff,
     meta: 'Browser extension',
   },
   {
-    title: 'Password Generator',
+    title: 'Collaborative Text Editor',
     description:
-      'A secure, fully client-side strong password generator. Part of the QuickTools suite I build to practice scripting fundamentals.',
-    tags: ['JavaScript', 'CSS'],
-    github: 'https://github.com/costin-cernea/password-generator',
-    icon: KeyRound,
-    meta: 'QuickTools',
+      'A client-server text editor built for a Networking course — TCP sockets, file locking, and real-time broadcast notifications, containerized with Docker. Built with a 3-person team.',
+    tags: ['Python', 'TCP Sockets', 'Threading', 'Docker'],
+    github: 'https://github.com/costin-cernea/collaborative-text-editor',
+    icon: Users,
+    meta: 'Networking · Client-Server',
   },
   {
     title: 'QR Code Generator',
@@ -353,9 +353,6 @@ export default function App() {
             <p>
               I like following that curiosity outside infrastructure too: I built the <span className="text-ink">Universal RAG Framework</span> to see how retrieval and LLMs actually fit together, and a small browser extension, <span className="text-ink">youtube-stealth-mode</span>, to block tracking at the network level. Different problems, same instinct — take it apart, rebuild it, understand it.
             </p>
-            <p>
-              Always happy to talk shop about DevOps, CI/CD, or any project that involves figuring out how something really works.
-            </p>
           </div>
         </div>
       </section>
@@ -367,10 +364,10 @@ export default function App() {
             ¬ Contact
           </p>
           <h2 className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight md:text-4xl">
-            Let's build reliable systems together.
+            I'd love to hear from you.
           </h2>
           <p className="mt-4 max-w-xl leading-relaxed text-ink-muted">
-            I'm open to internships, junior roles, and collaborations — especially around DevOps, cloud infrastructure, or applied AI. Always eager to dive into a complex system and learn how it holds together.
+            I'm still a student, so I'm looking for an internship or junior role where I can keep learning by working on real systems — DevOps, cloud infrastructure, or applied AI are what I'd gravitate toward, but I'm open to wherever there's something worth figuring out.
           </p>
           <div className="mt-8">
             <CopyEmailButton />

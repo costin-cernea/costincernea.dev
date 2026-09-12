@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Github } from 'lucide-react';
+import PixelBrain from './PixelBrain.jsx';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -117,6 +118,12 @@ export default function ProjectCard({
         ].join(' ')}>
           {description}
         </p>
+
+        {featured && (
+          <div className="mt-6 flex flex-1 items-center justify-center py-4">
+            <PixelBrain />
+          </div>
+        )}
 
         {/* Tech badges */}
         {tags.length > 0 && (

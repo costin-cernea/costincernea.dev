@@ -47,6 +47,7 @@ export default {
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',
         'shimmer': 'shimmer 2.5s linear infinite',
+        'pixel-pulse': 'pixelPulse 2.6s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -56,6 +57,10 @@ export default {
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
+        },
+        pixelPulse: {
+          '0%, 100%': { opacity: '0.35' },
+          '50%': { opacity: '1' },
         },
       },
     },
